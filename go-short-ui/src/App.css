@@ -1,0 +1,83 @@
+/* src/App.css */
+body {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  padding: 0;
+}
+
+h1 {
+  color: #04436e;
+}
+
+.content {
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+input,
+button {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 50%;
+  margin-right: 10px;
+}
+
+button {
+  background-color: #3498db;
+  color: #ecf0f1;
+  cursor: pointer;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #2980b9;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar-title {
+  color: #ecf0f1;
+}
+
+/* Footer styles */
+.footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.email-placeholder {
+  color: #3498db;
+}
+
+@media (max-width: 600px) {
+  /* Responsive styles for phone view */
+  .app {
+    padding: 0px;
+  }
+  .content {
+    margin-top: 40px;
+    margin-left: 10px;
+  }
+  input {
+    width: 70%;
+    margin-right: 10px;
+  }
+}
