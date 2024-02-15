@@ -1,7 +1,7 @@
 # Go Short
 
 ## Introduction
-[Go Short](shrt.bitsar.net) is a tool that converts long URLs into abbreviated versions, resulting in a shorter link that is easier to share and manage. These shortened URLs typically redirect to the original, long URL. They are particularly useful in several scenarios:
+[Go Short](https://shrt.bitsar.net) is a tool that converts long URLs into abbreviated versions, resulting in a shorter link that is easier to share and manage. These shortened URLs typically redirect to the original, long URL. They are particularly useful in several scenarios:
 
 1. Ease of Sharing: Shortened URLs are easier to share, especially in environments with character limits like Twitter or in printed materials where space is at a premium.
 
