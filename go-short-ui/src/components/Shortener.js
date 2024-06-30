@@ -1,6 +1,8 @@
+// src/components/Shortener.js
 import React, { useState } from 'react';
 import ShortenService from '../services/ShortenService';
 import Navbar from './Navbar';
+import { Tooltip } from 'react-tooltip'
 import Footer from './Footer';
 
 const Shortener = () => {
@@ -25,7 +27,6 @@ const Shortener = () => {
   const handleShortenUrl = async () => {
     try {
       const response = await ShortenService.shortenUrl(originalUrl);
-      console.log(response)
       if (response.status === 200) {
         setShortUrl(response.data.shortURL);
         setOriginalUrl('');
@@ -46,10 +47,13 @@ const Shortener = () => {
       }
     }
   };
+
   return (
     <div className="app">
       <Navbar />
-      <div className='content'>
+      <div className="content">
+        <p>Go Short is a free and easy-to-use URL shortener service. Simply enter your long URL and click "Shorten" to create a shorter version.</p>
+
         <input
           type="text"
           placeholder="Enter URL"
@@ -58,21 +62,36 @@ const Shortener = () => {
         />
         <button onClick={handleShortenUrl}>Shorten</button>
       </div>
-      {error && <p style={{ color: 'red', marginLeft: '20%' }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
       {shortUrl && (
-        <div style={{ marginLeft: '20%' }}>
+        <div className="short-url">
           <p>Short URL:</p>
-          <a href={shortUrl} target="_blank" rel="noopener noreferrer">
+          <a href={shortUrl} target="_blank" rel="noopener noreferrer" id="shortUrl" data-tooltip-id="my-tooltip" data-tooltip-content="Click to re-direct to the shortened URL">
             {shortUrl}
           </a>
-          <span
-            onClick={handleCopyClick}
-            style={{ cursor: 'pointer', marginLeft: '10px' }}
-          >
+          <Tooltip id="my-tooltip" />
+          <span onClick={handleCopyClick} className="copy-button">
             {isCopied ? 'Copied!' : 'Copy'}
           </span>
         </div>
       )}
+      <div className="additional-info">
+        <h3>How to Use Go Short</h3>
+        <ol>
+          <li>Enter the long URL in the input box above.</li>
+          <li>Click the "Shorten" button.</li>
+          <li>Copy the shortened URL to share it easily.</li>
+        </ol>
+
+        <h3>Benefits of Using Go Short</h3>
+        <ul>
+          <li>Easy to share URLs</li>
+          <li>Shorter URLs</li>
+          <li>Prevent URL Manipulation</li>
+          <li>Improve Aesthetics</li>
+          <li>Management of Links</li>
+        </ul>
+      </div>
       <Footer />
     </div>
   );
