@@ -10,8 +10,8 @@ dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('ShortenURLDB')
 
 def generate_random_key(length):
-    characters = string.ascii_letters + string.digits + '-_'
-    return ''.join(random.choice(characters) for i in range(length))
+    characters = string.ascii_letters + string.digits + '-_~.'
+    return ''.join(random.choice(characters) for _ in range(length))
 
 def is_key_exists(key):
     response = table.get_item(Key={'keyId': key})
@@ -50,7 +50,7 @@ def lambda_handler(event, context):
         }
     ttl_expiry = (datetime.now() + timedelta(days=365)).timestamp()
     while True:
-        short_key = generate_random_key(7)
+        short_key = generate_random_key(random.randint(1, 8))
         if not is_key_exists(short_key):
             break
     table.put_item(Item={
